@@ -34,6 +34,9 @@
 # SOFTWARE.
 set -e -o pipefail
 
+# The following config values can be overridden by creating a file
+# zmmirror.conf next to this script.
+
 # Change this to choose your destination operating systems.  Sane choices are:
 # * redhat-6.5
 # * ubuntu-10.04
@@ -55,6 +58,11 @@ LOCK_FILE=$LOCK_DIR/$(basename $0 .sh).lock
 # You probably don't want to change this either.
 UPDATE_URL=https://www.zimbra.com/aus/universal/update.php
 DEFAULT_VERSION=8.0.0.5434
+
+CONFIG_FILE=$(dirname $0)/$(basename $0 .sh).conf
+if [ -f "$CONFIG_FILE" ]; then
+  source "$CONFIG_FILE"
+fi
 
 
 main() {
