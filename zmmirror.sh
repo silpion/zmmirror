@@ -73,14 +73,15 @@ main() {
     flock -n 9
     echo $$ >&9
     trap "rm -f '$LOCK_FILE'" EXIT
+    (
+      # We'll work in the mirror directory from here on
+      cd "$MIRROR_DIR"
 
-    # We'll work in the mirror directory from here on
-    cd "$MIRROR_DIR"
-
-    # Download all the platforms!
-    for platform in $PLATFORMS; do
-      download $platform
-    done
+      # Download all the platforms!
+      for platform in $PLATFORMS; do
+        download $platform
+      done
+    )
   } 9>> "$LOCK_FILE"
 }
 
