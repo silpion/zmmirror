@@ -1,3 +1,4 @@
 zmmirror.conf
 zmmirror.lock
+*.latest
 *.tgz
