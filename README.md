@@ -16,3 +16,16 @@ puppet/facter.  The tarball will be saved under the original name in the
 target directory and an additional symlink with less information in the
 filename will be created as well, again to simplify the use of the mirror
 in combination with puppet.
+
+The directory structure will look like this:
+
+.
+├── redhat-6.5
+│   ├── zcs-ne-8.0.7.6021-redhat-6.5.tgz -> zcs-NETWORK-8.0.7_GA_6021.RHEL6_64.20140408123937.tgz
+│   └── zcs-NETWORK-8.0.7_GA_6021.RHEL6_64.20140408123937.tgz
+├── redhat-6.5.latest
+├── ubuntu-12.04
+│   ├── zcs-ne-8.0.7.6021-ubuntu-12.04.tgz -> zcs-NETWORK-8.0.7_GA_6021.UBUNTU12_64.20140408123948.tgz
+│   └── zcs-NETWORK-8.0.7_GA_6021.UBUNTU12_64.20140408123948.tgz
+├── ubuntu-12.04.latest
+└── zmmirror.sh
